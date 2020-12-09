@@ -1,7 +1,7 @@
 # greek-apparatus-app
 Greek Apparatus App for uW hackathon 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/719313a0-e060-4c10-b717-2e8eaea2f677/deploy-status)](https://app.netlify.com/sites/wonderful-northcutt-aca5ca/deploys)
+[View on Netlify](https://greek-apparatus.netlify.app/) [![Netlify Status](https://api.netlify.com/api/v1/badges/719313a0-e060-4c10-b717-2e8eaea2f677/deploy-status)](https://app.netlify.com/sites/wonderful-northcutt-aca5ca/deploys)
 
 This is a [Next.js](https://nextjs.org/) v10.0.3 project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) and set up to be instantly deployed to [Netlify](https://url.netlify.com/Bk4UicocL)!
 
