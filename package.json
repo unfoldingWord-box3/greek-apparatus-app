@@ -2,7 +2,7 @@
   "name": "greek-apparatus-app",
   "version": "0.1.0",
   "description": "Greek Apparatus App for uW hackathon",
-  "main": "public/ndex.html",
+  "main": "public/ndex.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
