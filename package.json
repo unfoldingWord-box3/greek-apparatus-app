@@ -2,12 +2,12 @@
   "name": "greek-apparatus-app",
   "version": "0.1.0",
   "description": "Greek Apparatus App for uW hackathon",
-  "main": "public/ndex.js",
+  "main": "pages/ndex.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:css": "tailwind build src/style.css -o public/style.css"
+    "build:css": "tailwind build src/style.css -o styles/style.css"
   },
   "dependencies": {
     "autoprefixer": "^10.1.0",
