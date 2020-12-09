@@ -1,0 +1,31 @@
+{
+  "name": "greek-apparatus-app",
+  "version": "0.1.0",
+  "description": "Greek Apparatus App for uW hackathon",
+  "main": "dist/ndex.html",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:css": "tailwind build src/style.css -o public/style.css"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.1.0",
+    "nextjs": "^0.0.3",
+    "postcss": "^8.2.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "tailwindcss": "^2.0.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unfoldingword-box3/greek-apparatus-app.git"
+  },
+  "author": "unfoldingWord",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unfoldingword-box3/greek-apparatus-app/issues"
+  },
+  "homepage": "https://github.com/unfoldingword-box3/greek-apparatus-app#readme"
+}
