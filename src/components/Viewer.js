@@ -76,11 +76,38 @@ function Viewer ({
 
       const filteredVariantObjects = filterApparatusData(chapterKey, currentVerseKey);
 
-      const apparatusData = JSON.stringify(filterApparatusData(chapterKey, currentVerseKey), null, 4)
-      // let apparatusData = <div> + 
-      //   filteredVariantObjects.readings.map(
-      //       currentVariantObject => <span>asdf</span>
-      //   ) + </div>;
+      //const apparatusData = JSON.stringify(filterApparatusData(chapterKey, currentVerseKey), null, 4)
+      let apparatusData = <div> {
+        filteredVariantObjects.map(
+            currentVariantObject => (
+              <>
+                <br/>
+                <span>[{currentVariantObject.baseText}]</span>
+                <br/>
+                {
+                  currentVariantObject.readings.map(
+                    currentReading => (
+                      <>
+                        <span>{currentReading.text}</span>
+                        <span>-</span>
+                        <span>{currentReading.translations[1].text}</span>
+                        {
+                          currentReading.sources.map(
+                            currentSource => ((currentSource.textClass == "mod")?
+                              <><span>(</span><span>{currentSource.title}</span><span>)</span></>
+                              : <span>{currentSource.title}</span>
+                              )
+                            )
+                        }
+                        <br/>
+                      </>
+                    )
+                  )
+                }
+                <br/>
+              </>
+            )
+        ) } </div>;
 
       return (
         <div>
