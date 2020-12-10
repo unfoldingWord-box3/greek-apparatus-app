@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export",
-    "build:css": "tailwind build src/style.css -o styles/style.css"
+    "export": "next export"
   },
   "dependencies": {
     "autoprefixer": "^10.1.0",
