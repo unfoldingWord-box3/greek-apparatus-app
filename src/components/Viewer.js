@@ -4,6 +4,7 @@ import {tokenize} from 'string-punctuation-tokenizer';
 
 import { parseResourceLink, extendProject, resourceFromResourceLink, getResourceManifest } from 'scripture-resources-rcl';
 import { versesFromReferenceIdAndBooks, referenceIdFromReference } from 'scripture-resources-rcl';
+import Card from '../components/Card';
 
 import apparatusData from '../mocks/ugnt_mrk_apparatus.js';
 
@@ -121,55 +122,51 @@ function Viewer ({usfm}) {
       const currentVerseObjects = JSON.parse('{"' + parseInt(currentVerseKey) + '": ' + JSON.stringify(currentVerseObjectsArrayContents) + '}');
 
       //const apparatusData = JSON.stringify(filterApparatusData(chapterKey, currentVerseKey), null, 4)
-      let apparatusData = <div> {
+      let apparatusData = <div className="apparatusRow flex flex-wrap"> {
         filteredVariantObjects.map(
             currentVariantObject => (
-              <>
-                <br/>
+              <div className="mb-8">
                 <span className="apparatusBaseText">{currentVariantObject.baseText}</span>
                 {
                   currentVariantObject.readings.map(
                     currentReading => (
-                      <>
-                        <span className="apparatusTranslationText">{(currentReading.text.trim().length == 0)? '(Omit)' : currentReading.translations.filter(tl => tl.languageId == "en")[0].text}</span>
-                        <span className="apparatusVariantText">{currentReading.text}</span>
-                          <span className="apparatusSourceContainer tooltip">
-                            <span className="tooltiptext">Sources</span>
+                      <div class="flex flex-wrap">
+                        <div className="apparatusTranslationText">{(currentReading.text.trim().length == 0)? '(Omit)' : currentReading.translations.filter(tl => tl.languageId == "en")[0].text}</div>
+                        <div className="apparatusVariantText">{currentReading.text}</div>
+                          <div className="apparatusSourceContainer sm:flex sm:flex-wrap">
                             {
                             currentReading.sources.map(
                               currentSource => {
                                 if (currentSource.title && currentSource.title.length > 0)
                                 {
                                   if (currentSource.textClass == "mod") {
-                                    return <span className="apparatusSource">{'(' + currentSource.title + ')'}</span>
+                                    return <div className="apparatusSource">{'(' + currentSource.title + ')'}</div>
                                   } 
                                   else {
-                                    return <span className="apparatusSource">{currentSource.title}</span>;
+                                    return <div className="apparatusSource">{currentSource.title}</div>;
                                   }
                                 }
                                 }
                               )
                             }
-                            </span>
-                        <br/>
-                      </>
+                            </div>
+                      </div>
                     )
                   )
                 }
-                <br/>
-              </>
+              </div>
             )
         ) } </div>;
 
       return (
-        <div className='flex'>
-          <div className="m-2 bg-white border border-gray-300 p-5 rounded-md shadow-lg">
+        <div className='flex flex-wrap'>
+          <Card className="flex-shrink w-1/3">
             <Verses verses={currentVerseObjects} paragraphs showUnsupported disableWordPopover={true} direction='auto' />
-          </div>
+          </Card>
           
-          <div className="m-2 bg-white border border-gray-300 p-5 rounded-md shadow-lg">
-            <pre>{apparatusData}</pre>
-          </div>
+          <Card className="flex-1 w-1/3">
+            {apparatusData}
+          </Card>
         </div>
       );
     }

@@ -205,7 +205,7 @@ module.exports = {
                      },
                      {
                         "text":"και",
-                        "isTranslatable":true,
+                        "isTranslatable":false,
                         "translations":[
                            {
                               "languageId":"en",
@@ -242,7 +242,7 @@ module.exports = {
                   "readings":[
                      {
                         "text":"εισ οικον",
-                        "isTranslatable":true,
+                        "isTranslatable":false,
                         "translations":[
                            {
                               "languageId":"en",
@@ -274,7 +274,7 @@ module.exports = {
                      },
                      {
                         "text":"εν οικω",
-                        "isTranslatable":true,
+                        "isTranslatable":false,
                         "translations":[
                            {
                               "languageId":"en",
