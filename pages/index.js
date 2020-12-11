@@ -1,7 +1,13 @@
+import { useContext } from 'react'
 import Layout from '@components/Layout'
 import Card from '@components/Card'
+import { BibleReferenceContext } from '@context/BibleReferenceContext'
 
 export default function Home() {
+  const { bibleReference } = useContext(BibleReferenceContext)
+
+  console.log({ bibleReference })
+
   return (
     <Layout>
       <div className='flex'>

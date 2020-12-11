@@ -7,17 +7,17 @@ export default function Layout({
   children
 }) {
   return (
-    <div className="h-screen flex flex-col">
-      <Head>
-        <title>Greek Apparatus</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header title='Greek Apparatus'/>
-      <main className='flex flex-1 flex-col justify-center items-center py-4 px-6 bg-gray-200'>
-        {children}
-      </main>
-      <Footer/>
-    </div>
+      <div className="h-screen flex flex-col">
+        <Head>
+          <title>Greek Apparatus</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Header title='Greek Apparatus' />
+        <main className='flex flex-1 flex-col justify-center items-center py-4 px-6 bg-gray-200'>
+          {children}
+        </main>
+        <Footer/>
+      </div>
   )
 }
 
