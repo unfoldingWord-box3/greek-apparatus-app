@@ -14,24 +14,47 @@ body {
 {
   font-size: 16pt;
   color: darkblue;
-}
-
-.apparatusVariantText
-{
-  color: darkgray;
+  display: table;
 }
 
 .apparatusTranslationText
 {
   color: black;
-  display: table;
+  font-size: x-large;
   padding-left: 12pt;
-  font-size: larger;
+}
+
+.apparatusVariantText
+{
+  color: darkgray;
+  padding-left: 12pt;
+}
+
+.apparatusSourceContainer
+{
+  display: table;
+  color: darkgray;
 }
 
 .apparatusSource
 {
-  display: table;
-  color: darkgray;
   padding-left: 12pt;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
