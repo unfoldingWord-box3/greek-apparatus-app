@@ -14,7 +14,7 @@ export async function getStaticProps() {
   const params = {
     username: 'unfoldingword',
     repository: 'el-x-koine_ugnt',
-    path: '42-MRK.usfmm',
+    path: '42-MRK.usfm',
     tag: 'master', 
     config: {
       server: 'https://git.door43.org',
