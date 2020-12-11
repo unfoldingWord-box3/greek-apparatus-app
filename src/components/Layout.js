@@ -13,7 +13,7 @@ export default function Layout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header title='Greek Apparatus!'/>
-      <main className='flex flex-col justify-center items-center py-4 px-6 bg-gray-200'>
+      <main className='flex flex-1 flex-col justify-center items-center py-4 px-6 bg-gray-200'>
         {children}
       </main>
       <Footer/>
