@@ -90,13 +90,20 @@ function Viewer ({
                       <>
                         <span>{currentReading.text}</span>
                         <span>-</span>
-                        <span>{currentReading.translations[1].text}</span>
+                        <span>{currentReading.translations.filter(tl => tl.languageId == "ru")[0].text}</span>
                         {
                           currentReading.sources.map(
-                            currentSource => ((currentSource.textClass == "mod")?
-                              <><span>(</span><span>{currentSource.title}</span><span>)</span></>
-                              : <span>{currentSource.title}</span>
-                              )
+                            currentSource => {
+                              if (currentSource.title && currentSource.title.length > 0)
+                              {
+                                if (currentSource.textClass == "mod") {
+                                  return <><span>(</span><span>{currentSource.title}</span><span>)</span></>
+                                } else
+                                {
+                                  return <span>{currentSource.title}</span>
+                                }
+                              }
+                            }
                             )
                         }
                         <br/>

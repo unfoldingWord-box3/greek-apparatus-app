@@ -20,7 +20,7 @@ module.exports = {
                             },
                             {
                                "languageId":"ru",
-                               "text":"एन्ट्रे डी न्यूवो"
+                               "text":"asdf"
                             }
                          ],
                          "sources":[
@@ -137,7 +137,7 @@ module.exports = {
                             },
                             {
                                "languageId":"ru",
-                               "text":"एन्ट्रे डी न्यूवो"
+                               "text":"asdf"
                             }
                          ],
                          "sources":[
