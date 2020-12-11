@@ -10,19 +10,24 @@ export default function ViewerPage({ usfm }) {
   )
 }
 
-ViewerPage.getInitialProps = async (ctx) => {
+export async function getStaticProps(context) {
   const config = {
-    server: 'https://bg.door43.org',
+    server: 'https://git.door43.org',
     cache: {
       maxAge: 1 * 1 * 1 * 60 * 1000, // override cache to 1 minute
     },
   };
-  const params = { username: 'unfoldingword', repository: 'el-x-koine_ugnt', path: '42-MRK.usfm', tag: 'master', config };
+  const params = { username: 'unfoldingword', repository: 'el-x-koine_ugnt', path: '42-MRK.usfmm', tag: 'master', config };
   let usfm = '';
   try {
     usfm = await core.getFile(params);
   } catch(e) {
     console.log(e);
   }
-  return { usfm }
+  if (! usfm) {
+    return {
+      notFound: true,
+    };
+  }
+  return { props: { usfm } };
 }
