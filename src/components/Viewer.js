@@ -1,5 +1,3 @@
-import Card from '@components/Card'
-
 import {Verses} from "scripture-resources-rcl";
 import usfmJS from 'usfm-js';
 import {tokenize} from 'string-punctuation-tokenizer';
@@ -7,17 +5,15 @@ import {tokenize} from 'string-punctuation-tokenizer';
 import { parseResourceLink, extendProject, resourceFromResourceLink, getResourceManifest } from 'scripture-resources-rcl';
 import { versesFromReferenceIdAndBooks, referenceIdFromReference } from 'scripture-resources-rcl';
 
-import ugnt_mrk from '../mocks/ugnt_mrk.usfm';
 import apparatusData from '../mocks/ugnt_mrk_apparatus.js';
 
 // let verses = [];
 // verses[1] = chapters[chapterKey][1];
 
-function Viewer ({
-}) {
+function Viewer ({usfm}) {
   // TODO: Download from door43.
   
-  const usfmJSON = usfmJS.toJSON(ugnt_mrk);
+  const usfmJSON = usfmJS.toJSON(usfm);
   //console.log(usfmJSON);
   const {chapters} = usfmJSON;
   const chapterKey = '2';
