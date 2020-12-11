@@ -23,7 +23,6 @@
     "react-dnd": "^7.7.0",
     "react-dom": "^16.13.1 ",
     "scripture-resources-rcl": "^2.1.0-rc.5",
-    "swr": "^0.3.9",
     "tailwindcss": "^2.0.1",
     "usfm-js": "^2.1.0"
   },
