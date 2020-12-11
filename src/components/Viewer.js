@@ -91,9 +91,6 @@ function Viewer ({
 
   const tagVariantsInVerseObjects = (currentVerseObjects, filteredVariantObjects) =>
   {
-      // {"type":"text","text":", "}
-      //currentVerseObjects[1].verseObjects.insert(3, {type: 'text', text: '⸢'});
-
       if (currentVerseObjects)
       {
         filteredVariantObjects.forEach(variant =>{
@@ -117,12 +114,12 @@ function Viewer ({
   
   const verses = Object.keys(chapters[chapterKey]).filter(key => key.match(/^\d+$/)).map(
     (currentVerseKey) => {
-      let currentVerseObjects = [];
-      currentVerseObjects[1] = chapters[chapterKey][currentVerseKey];
-
+      //let currentVerseObjects = [];
+      //currentVerseObjects[1] = chapters[chapterKey][currentVerseKey];
+      
       const filteredVariantObjects = filterApparatusData(chapterKey, currentVerseKey);
-
-      currentVerseObjects[1] = tagVariantsInVerseObjects(currentVerseObjects[1], filteredVariantObjects);
+      const currentVerseObjectsArrayContents = tagVariantsInVerseObjects(chapters[chapterKey][currentVerseKey], filteredVariantObjects);
+      const currentVerseObjects = JSON.parse('{"' + parseInt(currentVerseKey) + '": ' + JSON.stringify(currentVerseObjectsArrayContents) + '}');
 
       //const apparatusData = JSON.stringify(filterApparatusData(chapterKey, currentVerseKey), null, 4)
       let apparatusData = <div> {
@@ -168,7 +165,7 @@ function Viewer ({
       return (
         <div className='flex'>
           <div className="m-2 bg-white border border-gray-300 p-5 rounded-md shadow-lg">
-            {currentVerseKey}<Verses verses={currentVerseObjects} paragraphs showUnsupported />
+            <Verses verses={currentVerseObjects} paragraphs showUnsupported disableWordPopover={true} direction='auto' />
           </div>
           
           <div className="m-2 bg-white border border-gray-300 p-5 rounded-md shadow-lg">
