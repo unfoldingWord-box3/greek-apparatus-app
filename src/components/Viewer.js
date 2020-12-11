@@ -65,11 +65,14 @@ function Viewer ({
           }
         });
 
-        filteredVariantObjects.push(currentVariantObject);
+        if (currentVariantObject.readings.length > 0)
+        {
+          filteredVariantObjects.push(currentVariantObject);
+        }
       }
     );
 
-    return variantObjects;
+    return filteredVariantObjects;
   };
 
   Array.prototype.insert = function ( index, item ) {
@@ -132,7 +135,7 @@ function Viewer ({
                   currentVariantObject.readings.map(
                     currentReading => (
                       <>
-                        <span className="apparatusTranslationText">{(currentReading.text.trim().length == 0)? '(Omit)' : currentReading.translations.filter(tl => tl.languageId == "ru")[0].text}</span>
+                        <span className="apparatusTranslationText">{(currentReading.text.trim().length == 0)? '(Omit)' : currentReading.translations.filter(tl => tl.languageId == "en")[0].text}</span>
                         <span className="apparatusVariantText">{currentReading.text}</span>
                           <span className="apparatusSourceContainer tooltip">
                             <span className="tooltiptext">Sources</span>
