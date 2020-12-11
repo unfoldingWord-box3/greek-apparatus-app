@@ -1,3 +1,5 @@
+import Card from '@components/Card'
+
 import {Verses} from "scripture-resources-rcl";
 import usfmJS from 'usfm-js';
 
@@ -76,22 +78,55 @@ function Viewer ({
 
       const filteredVariantObjects = filterApparatusData(chapterKey, currentVerseKey);
 
-      const apparatusData = JSON.stringify(filterApparatusData(chapterKey, currentVerseKey), null, 4)
-      // let apparatusData = <div> + 
-      //   filteredVariantObjects.readings.map(
-      //       currentVariantObject => <span>asdf</span>
-      //   ) + </div>;
+      //const apparatusData = JSON.stringify(filterApparatusData(chapterKey, currentVerseKey), null, 4)
+      let apparatusData = <div> {
+        filteredVariantObjects.map(
+            currentVariantObject => (
+              <>
+                <br/>
+                <span className="apparatusBaseText">[{currentVariantObject.baseText}]</span>
+                <br/>
+                {
+                  currentVariantObject.readings.map(
+                    currentReading => (
+                      <>
+                        <span className="apparatusVariantText">{currentReading.text}</span>
+                        <span>-</span>
+                        <span className="apparatusTranslationText">{currentReading.translations.filter(tl => tl.languageId == "ru")[0].text}</span>
+                        {
+                          currentReading.sources.map(
+                            currentSource => {
+                              if (currentSource.title && currentSource.title.length > 0)
+                              {
+                                if (currentSource.textClass == "mod") {
+                                  return <><span className="apparatusSource">({currentSource.title})</span></>
+                                } else
+                                {
+                                  return <span className="apparatusSource">{currentSource.title}</span>
+                                }
+                              }
+                            }
+                            )
+                        }
+                        <br/>
+                      </>
+                    )
+                  )
+                }
+                <br/>
+              </>
+            )
+        ) } </div>;
 
       return (
-        <div>
-          <div>
+        <div className='flex'>
+          <div className="m-2 bg-white border border-gray-300 p-5 rounded-md shadow-lg">
             {currentVerseKey}<Verses verses={currentVerseObjects} paragraphs showUnsupported />
           </div>
-          <br/>
-          <div>
+          
+          <div className="m-2 bg-white border border-gray-300 p-5 rounded-md shadow-lg">
             <pre>{apparatusData}</pre>
           </div>
-          <hr/>
         </div>
       );
     }

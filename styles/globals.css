@@ -9,3 +9,29 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+.apparatusBaseText
+{
+  font-size: 16pt;
+  color: darkblue;
+}
+
+.apparatusVariantText
+{
+  color: darkgray;
+}
+
+.apparatusTranslationText
+{
+  color: black;
+  display: table;
+  padding-left: 12pt;
+  font-size: larger;
+}
+
+.apparatusSource
+{
+  display: table;
+  color: darkgray;
+  padding-left: 12pt;
+}
