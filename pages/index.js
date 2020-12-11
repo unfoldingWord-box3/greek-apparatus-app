@@ -1,8 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
-import Scripture from '@components/Scripture';
 import { core } from 'scripture-resources-rcl';
 
 export default function Home({ usfm }) {
@@ -10,18 +6,19 @@ export default function Home({ usfm }) {
   const scriptureHeight = rowHeight * 3;
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className='flex-1 flex flex-col justify-center items-center py-20'>
-        <pre>{usfm}</pre>
-        <Scripture height={scriptureHeight} />
-      </main>
-      <Footer />
-    </div>
+    <Layout>
+      <div className='flex'>
+        <Card
+          title='UGNT'
+          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa diam, vehicula ut ultrices vitae, porta eget libero. Proin blandit lectus eget ipsum scelerisque, id porta velit malesuada. Proin imperdiet sodales orci, vitae auctor sapien dictum congue.'
+        />
+        <Card
+          title='UGNT'
+          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa diam, vehicula ut ultrices vitae, porta eget libero. Proin blandit lectus eget ipsum scelerisque, id porta velit malesuada. Proin imperdiet sodales orci, vitae auctor sapien dictum congue.'
+        />
+      </div>
+      <pre>{usfm}</pre>
+    </Layout>
   )
 }
 
