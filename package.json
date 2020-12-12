@@ -36,5 +36,11 @@
   "bugs": {
     "url": "https://github.com/unfoldingword-box3/greek-apparatus-app/issues"
   },
-  "homepage": "https://github.com/unfoldingword-box3/greek-apparatus-app#readme"
+  "homepage": "https://github.com/unfoldingword-box3/greek-apparatus-app#readme",
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-react": "^7.21.5",
+    "prettier": "^2.2.1"
+  }
 }
