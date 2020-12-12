@@ -18,9 +18,9 @@ export default function Header({ title }) {
     initialVerse: bibleReference.verse,
     onChange: onReferenceChange,
   })
-
+s
   return (
-    <div className='h-32 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md: h-14'>
+    <div className='h-20 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md: h-14'>
       <Link href='/'>
         <a className='no-underline cursor-pointer ml-8 text-lg text-gray-700 hidden md:flex'>
           {title}
