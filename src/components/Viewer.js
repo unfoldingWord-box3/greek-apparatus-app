@@ -4,7 +4,7 @@ import {tokenize} from 'string-punctuation-tokenizer';
 
 import { parseResourceLink, extendProject, resourceFromResourceLink, getResourceManifest } from 'scripture-resources-rcl';
 import { versesFromReferenceIdAndBooks, referenceIdFromReference } from 'scripture-resources-rcl';
-import Card from '../components/Card';
+import Card from '@components/Card';
 
 import apparatusData from '../mocks/ugnt_mrk_apparatus.js';
 
@@ -126,13 +126,13 @@ function Viewer ({usfm}) {
         filteredVariantObjects.map(
             currentVariantObject => (
               <div className="mb-8">
-                <span className="apparatusBaseText">{currentVariantObject.baseText}</span>
+                <span className="apparatusBaseText text-lg">{currentVariantObject.baseText}</span>
                 {
                   currentVariantObject.readings.map(
                     currentReading => (
                       <div class="flex flex-wrap">
-                        <div className="apparatusTranslationText">{(currentReading.text.trim().length == 0)? '(Omit)' : currentReading.translations.filter(tl => tl.languageId == "en")[0].text}</div>
-                        <div className="apparatusVariantText">{currentReading.text}</div>
+                        <div className="apparatusTranslationText ml-2 text-lg">{(currentReading.text.trim().length == 0)? '(Omit)' : currentReading.translations.filter(tl => tl.languageId == "en")[0].text}</div>
+                        <div className="apparatusVariantText ml-2">{currentReading.text}</div>
                           <div className="apparatusSourceContainer sm:flex sm:flex-wrap">
                             {
                             currentReading.sources.map(
@@ -140,10 +140,10 @@ function Viewer ({usfm}) {
                                 if (currentSource.title && currentSource.title.length > 0)
                                 {
                                   if (currentSource.textClass == "mod") {
-                                    return <div className="apparatusSource">{'(' + currentSource.title + ')'}</div>
+                                    return <div className="apparatusSource ml-2">{'(' + currentSource.title + ')'}</div>
                                   } 
                                   else {
-                                    return <div className="apparatusSource">{currentSource.title}</div>;
+                                    return <div className="apparatusSource ml-2">{currentSource.title}</div>;
                                   }
                                 }
                                 }
