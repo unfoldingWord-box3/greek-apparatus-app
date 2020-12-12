@@ -1,21 +1,38 @@
-import { useContext } from 'react'
 import Layout from '@components/Layout'
-import Card from '@components/Card'
-import { BibleReferenceContext } from '@context/BibleReferenceContext'
+import Viewer from '@components/Viewer';
+import {core} from 'scripture-resources-rcl';
 
-export default function Home() {
+export default function Home({ usfm }) {
   return (
     <Layout>
-      <div className='flex'>
-        <Card
-          title='UGNT'
-          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa diam, vehicula ut ultrices vitae, porta eget libero. Proin blandit lectus eget ipsum scelerisque, id porta velit malesuada. Proin imperdiet sodales orci, vitae auctor sapien dictum congue.'
-        />
-        <Card
-          title='UGNT'
-          content='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed massa diam, vehicula ut ultrices vitae, porta eget libero. Proin blandit lectus eget ipsum scelerisque, id porta velit malesuada. Proin imperdiet sodales orci, vitae auctor sapien dictum congue.'
-        />
-      </div>
+      <Viewer usfm={usfm} />
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const params = {
+    username: 'unfoldingword',
+    repository: 'el-x-koine_ugnt',
+    path: '42-MRK.usfm',
+    tag: 'master', 
+    config: {
+      server: 'https://git.door43.org',
+      cache: {
+        maxAge: 1 * 1 * 1 * 60 * 1000, // override cache to 1 minute
+      },
+    },
+  };
+  let usfm = '';
+  try {
+    usfm = await core.getFile(params);
+  } catch(e) {
+    console.log(e);
+  }
+  if (! usfm) {
+    return {
+      notFound: true,
+    };
+  }
+  return { props: { usfm } };
 }
