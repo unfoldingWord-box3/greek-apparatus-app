@@ -6,46 +6,18 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   @apply: text-base;
 }
 
 .toggle-checkbox:checked {
   @apply: right-0 border-green-400;
   right: 0;
-  border-color: #68D391;
+  border-color: #68d391;
 }
 
 .toggle-checkbox:checked + .toggle-label {
   @apply: bg-green-400;
-  background-color: #68D391;
-}
-
-.apparatusBaseText
-{
-  color: darkblue;
-  display: table;
-}
-
-.apparatusTranslationText
-{
-  color: black;
-  word-wrap: normal;
-}
-
-.apparatusVariantText
-{
-  color: darkgray;
-}
-
-.apparatusSourceContainer
-{
-  display: table;
-  color: darkgray;
-}
-
-.apparatusSource
-{
-  display: block;
+  background-color: #68d391;
 }
