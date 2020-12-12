@@ -20,13 +20,13 @@ export default function Header({ title }) {
   })
 
   return (
-    <div className='h-14 w-screen flex flex-row items-center p-1 justify-between bg-white shadow-xs'>
+    <div className='h-20 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md: h-14'>
       <Link href='/'>
         <a className='no-underline cursor-pointer ml-8 text-lg text-gray-700 hidden md:flex'>
           {title}
         </a>
       </Link>
-      <div className='flex flex-row'>
+      <div className='flex items-center flex-col md:flex-row'>
         <BibleReference status={state} actions={actions} />
         <Switch checked={isChapterView} onChange={setChapterView} />
       </div>
