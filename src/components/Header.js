@@ -18,7 +18,7 @@ export default function Header({ title }) {
     initialVerse: bibleReference.verse,
     onChange: onReferenceChange,
   })
-s
+
   return (
     <div className='h-20 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md: h-14'>
       <Link href='/'>
