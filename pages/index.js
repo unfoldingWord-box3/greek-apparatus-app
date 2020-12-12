@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import Layout from '@components/Layout'
 import Card from '@components/Card'
+import { BibleReferenceContext } from '@context/BibleReferenceContext'
 
 export default function Home() {
   return (
