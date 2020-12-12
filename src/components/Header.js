@@ -5,9 +5,12 @@ import { BibleReferenceContext } from '@context/BibleReferenceContext'
 import Switch from '@components/Switch'
 
 export default function Header({ title }) {
-  const { bibleReference, onReferenceChange } = useContext(
-    BibleReferenceContext
-  )
+  const {
+    isChapterView,
+    setChapterView,
+    bibleReference,
+    onReferenceChange,
+  } = useContext(BibleReferenceContext)
 
   const { state, actions } = useBibleReference({
     initialBook: bibleReference.bookId,
@@ -25,7 +28,7 @@ export default function Header({ title }) {
       </Link>
       <div className='flex flex-row'>
         <BibleReference status={state} actions={actions} />
-        <Switch />
+        <Switch checked={isChapterView} onChange={setChapterView} />
       </div>
       <div className='flex flex-row-reverse mr-8 md:flex'>
         {/** buttons go here */}
