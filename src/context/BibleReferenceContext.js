@@ -10,7 +10,7 @@ export default function BibleReferenceContextProvider(props) {
   });
 
   function onReferenceChange(bookId, chapter, verse) {
-    console.log(`Reference: ${bookId} - ${chapter}:${verse}\n`);
+    console.info(`Reference: ${bookId} - ${chapter}:${verse}\n`);
     setBibleReference(prevState => ({
       ...prevState,
       bookId,
