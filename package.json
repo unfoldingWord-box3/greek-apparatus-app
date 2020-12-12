@@ -4,6 +4,7 @@
   "description": "Greek Apparatus App for uW hackathon",
   "scripts": {
     "dev": "next dev",
+    "debug": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "export": "next export"
@@ -14,6 +15,7 @@
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/styles": "^4.11.2",
     "autoprefixer": "^10.1.0",
+    "cross-env": "^7.0.3",
     "bible-reference-rcl": "^0.1.10-alpha",
     "datatable-translatable": "0.10.3-rc.3",
     "deep-equal": "^2.0.5",
@@ -24,6 +26,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "scripture-resources-rcl": "2.1.0-rc.5",
+    "string-punctuation-tokenizer": "^2.1.2",
     "tailwindcss": "^2.0.1",
     "usfm-js": "^2.1.0"
   },
