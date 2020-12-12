@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      menlo: ['Menlo', 'Monaco', 'Lucida Console', 'Courier New', 'monospace']
-    }
+      menlo: ['Menlo', 'Monaco', 'Lucida Console', 'Courier New', 'monospace'],
+    },
   },
   corePlugins: {
     preflight: false,
