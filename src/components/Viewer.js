@@ -1,35 +1,14 @@
-import { Verses } from 'scripture-resources-rcl'
 import usfmJS from 'usfm-js'
+import { Verses } from 'scripture-resources-rcl'
 import { tokenize } from 'string-punctuation-tokenizer'
-
-import {
-  parseResourceLink,
-  extendProject,
-  resourceFromResourceLink,
-  getResourceManifest,
-} from 'scripture-resources-rcl'
-import {
-  versesFromReferenceIdAndBooks,
-  referenceIdFromReference,
-} from 'scripture-resources-rcl'
 import Card from '@components/Card'
 
 import apparatusData from '../mocks/ugnt_mrk_apparatus.js'
 
-// let verses = [];
-// verses[1] = chapters[chapterKey][1];
-
 function Viewer({ usfm }) {
-  // TODO: Download from door43.
-
   const usfmJSON = usfmJS.toJSON(usfm)
-  //console.log(usfmJSON);
   const { chapters } = usfmJSON
   const chapterKey = '2'
-
-  console.log('--- --- ---')
-  //console.log(JSON.stringify(usfmJSON));
-  console.log('--- --- ---')
 
   const filterApparatusData = (referenceChapter, referenceVerse) => {
     let filtered = []
@@ -134,9 +113,6 @@ function Viewer({ usfm }) {
   const verses = Object.keys(chapters[chapterKey])
     .filter(key => key.match(/^\d+$/))
     .map(currentVerseKey => {
-      //let currentVerseObjects = [];
-      //currentVerseObjects[1] = chapters[chapterKey][currentVerseKey];
-
       const filteredVariantObjects = filterApparatusData(
         chapterKey,
         currentVerseKey
@@ -153,7 +129,6 @@ function Viewer({ usfm }) {
           '}'
       )
 
-      //const apparatusData = JSON.stringify(filterApparatusData(chapterKey, currentVerseKey), null, 4)
       let apparatusData = (
         <div className='apparatusRow flex flex-wrap'>
           {' '}
