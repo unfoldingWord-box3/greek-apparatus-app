@@ -168,7 +168,7 @@ function Viewer({ usfm }) {
                     {currentReading.text.trim().length == 0
                       ? '(Omit)'
                       : currentReading.translations.filter(
-                          tl => tl.languageId == 'en'
+                          tl => tl.languageId == 'hi'
                         )[0].text}
                   </div>
                   <div className='text-trueGray-400 ml-2'>
