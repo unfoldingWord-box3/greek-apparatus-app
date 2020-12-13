@@ -1,3 +1,5 @@
+import ApparatusSource from '@components/ApparatusSource'
+
 export default function ApparatusData({ filteredVariantObjects }) {
   return (
     <div className='apparatusRow flex flex-wrap'>
@@ -31,7 +33,18 @@ export default function ApparatusData({ filteredVariantObjects }) {
                     } else {
                       return (
                         <div key={`${i}-source`} className='block ml-2'>
-                          {currentSource.title}
+                          {
+                            currentSource.title.split(' ').map(
+                              (src) => (
+                                <span className="tooltip mr-1">
+                                  {src}
+                                  <span className="tooltip-text">
+                                    <ApparatusSource source={src}/>
+                                  </span>
+                                </span>
+                              )
+                            )
+                          }
                         </div>
                       )
                     }
