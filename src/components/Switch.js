@@ -2,7 +2,7 @@ import React from 'react'
 
 function Switch({ checked, onChange }) {
   return (
-    <div className='flex items-center'>
+    <div className='flex p-1 items-center'>
       <div className='relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in'>
         <input
           type='checkbox'

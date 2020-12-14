@@ -8,14 +8,14 @@ export default function Header({ title }) {
   const {
     isChapterView,
     setChapterView,
-    bibleReference,
+    bibleReference: { bookId, chapter, verse },
     onReferenceChange,
   } = useContext(BibleReferenceContext)
 
   const { state, actions } = useBibleReference({
-    initialBook: bibleReference.bookId,
-    initialChapter: bibleReference.chapter,
-    initialVerse: bibleReference.verse,
+    initialBook: bookId,
+    initialChapter: chapter,
+    initialVerse: verse,
     onChange: onReferenceChange,
   })
 
@@ -27,7 +27,36 @@ export default function Header({ title }) {
         </a>
       </Link>
       <div className='flex items-center flex-col md:flex-row'>
-        <BibleReference status={state} actions={actions} />
+        <div className='hidden md:contents'>
+          <BibleReference status={state} actions={actions} />
+        </div>
+        <div className='flex p-1 md:hidden'>
+          <button
+            className='bg-transparent border-transparent text-2xl mx-2'
+            onClick={actions.goToPrevChapter}
+          >
+            {'<<'}
+          </button>
+          <button
+            className='bg-transparent border-transparent text-2xl mx-2'
+            onClick={actions.goToPrevVerse}
+          >
+            {'<'}
+          </button>
+          <div className='font-bold p-1 leading-8 mx-2'>{`${bookId} ${chapter}:${verse}`}</div>
+          <button
+            className='bg-transparent border-transparent text-2xl mx-2'
+            onClick={actions.goToNextVerse}
+          >
+            {'>'}
+          </button>
+          <button
+            className='bg-transparent border-transparent text-2xl mx-2'
+            onClick={actions.goToNextChapter}
+          >
+            {'>>'}
+          </button>
+        </div>
         <Switch checked={isChapterView} onChange={setChapterView} />
       </div>
       <div className='flex flex-row-reverse mr-8 md:flex'>
