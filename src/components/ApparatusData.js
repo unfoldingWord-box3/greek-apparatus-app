@@ -35,8 +35,8 @@ export default function ApparatusData({ filteredVariantObjects }) {
                         <div key={`${i}-source`} className='block ml-2'>
                           {
                             currentSource.title.split(' ').map(
-                              (src) => (
-                                <span className="tooltip mr-1">
+                              (src, j) => (
+                                <span key={i + '-source' + '-' + j + '-title'} className="tooltip mr-1">
                                   {src}
                                   <span className="tooltip-text">
                                     <ApparatusSource source={src}/>
