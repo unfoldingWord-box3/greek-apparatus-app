@@ -21,3 +21,23 @@ body {
   @apply: bg-green-400;
   background-color: #68d391;
 }
+
+.tooltip .tooltip-text {
+  @apply invisible p-0 absolute z-50 inline-block bg-white ml-4 text-sm w-1/2;
+}
+
+.tooltip:hover .tooltip-text {
+  @apply visible;
+}
+
+.apparatusDataContainer {
+  @apply  flex flex-wrap bg-gray-700 text-white;
+}
+
+.apparatusDataContainer div {
+  @apply flex;
+}
+
+.apparatusDataContainer div div {
+  @apply  flex-none pl-2 inline-block;
+}
