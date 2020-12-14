@@ -10,8 +10,8 @@ export default function BibleReferenceContextProvider(props) {
     verse: '1',
   })
   const [languageID, setLanguageID] = useState('en')
-  const [isAncientSourcesRequired, setAncientSourcesRequired] = useState(true)
-  const [isTranslatableVariantsRequired, setTranslatableVariantsRequired] = useState(true)
+  const [isAncientSourcesRequired, setAncientSourcesRequired] = useState(false)
+  const [isTranslatableVariantsRequired, setTranslatableVariantsRequired] = useState(false)
 
 
   function onReferenceChange(bookId, chapter, verse) {

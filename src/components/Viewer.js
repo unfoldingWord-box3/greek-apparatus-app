@@ -11,6 +11,8 @@ function Viewer({ usfm }) {
   const {
     isChapterView,
     bibleReference: { chapter, verse },
+    isAncientSourcesRequired,
+    isTranslatableVariantsRequired,
   } = useContext(BibleReferenceContext)
 
   const usfmJSON = usfmJS.toJSON(usfm)
@@ -36,7 +38,9 @@ function Viewer({ usfm }) {
   const verses = verseNumbers.map((currentVerseKey, i) => {
     const filteredVariantObjects = filterApparatusData(
       chapterKey,
-      currentVerseKey
+      currentVerseKey,
+      isAncientSourcesRequired,
+      isTranslatableVariantsRequired
     )
     const currentVerseObjectsArrayContents = tagVariantsInVerseObjects(
       chapters[chapterKey][currentVerseKey],
