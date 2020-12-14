@@ -3,6 +3,7 @@ import Link from 'next/link'
 import BibleReference, { useBibleReference } from 'bible-reference-rcl'
 import { BibleReferenceContext } from '@context/BibleReferenceContext'
 import Switch from '@components/Switch'
+import LanguageSelect from '@components/LanguageSelect'
 
 export default function Header({ title }) {
   const {
@@ -10,6 +11,12 @@ export default function Header({ title }) {
     setChapterView,
     bibleReference: { bookId, chapter, verse },
     onReferenceChange,
+    languageID,
+    setLanguageID,
+    isAncientSourcesRequired,
+    setAncientSourcesRequired,
+    isTranslatableVariantsRequired,
+    setTranslatableVariantsRequired,
   } = useContext(BibleReferenceContext)
 
   const { state, actions } = useBibleReference({
@@ -57,7 +64,10 @@ export default function Header({ title }) {
             {'>>'}
           </button>
         </div>
-        <Switch checked={isChapterView} onChange={setChapterView} />
+        <Switch id="chapter-view" label={"Chapter View"} checked={isChapterView} onChange={setChapterView} />
+        <LanguageSelect languageID={languageID} onChange={setLanguageID} />
+        <Switch id={"require-sources"} label={"Require Ancient Sources"} checked={isAncientSourcesRequired} onChange={setAncientSourcesRequired} />
+        <Switch id={"require-variants"} label={"Require Translatable Variants"} checked={isTranslatableVariantsRequired} onChange={setTranslatableVariantsRequired} />
       </div>
       <div className='flex flex-row-reverse mr-8 md:flex'>
         {/** buttons go here */}
