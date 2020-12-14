@@ -14,7 +14,7 @@ export default function filterApparatusReadings({
     filteredReadings.forEach(rd => {
       // Filter sources:
       rd.sources = rd.sources.filter(
-        src => src.textClass !== 'mod' || requireAncient == false
+        src => (src.textClass !== 'mod' || requireAncient == false) && src.title.trim().length > 0
       )
 
       if (rd.sources.length > 0) {

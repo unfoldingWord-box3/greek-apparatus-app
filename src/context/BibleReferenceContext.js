@@ -10,6 +10,9 @@ export default function BibleReferenceContextProvider(props) {
     verse: '1',
   })
 
+  const [isRequireAncient, setIsRequireAncient] = useState(false);
+  const [isRequireTranslatable, setIsRequireTranslatable] = useState(false);
+
   function onReferenceChange(bookId, chapter, verse) {
     console.info(`Reference: ${bookId} - ${chapter}:${verse}\n`)
     setBibleReference(prevState => ({
@@ -25,6 +28,11 @@ export default function BibleReferenceContextProvider(props) {
     bibleReference,
     setChapterView,
     onReferenceChange,
+
+    isRequireAncient,
+    isRequireTranslatable,
+    setIsRequireAncient,
+    setIsRequireTranslatable,
   }
 
   return (

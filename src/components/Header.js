@@ -8,6 +8,11 @@ export default function Header({ title }) {
   const {
     isChapterView,
     setChapterView,
+
+    isRequireAncient,
+    isRequireTranslatable,
+    setIsRequireAncient,
+    setIsRequireTranslatable,
     bibleReference: { bookId, chapter, verse },
     onReferenceChange,
   } = useContext(BibleReferenceContext)
@@ -57,7 +62,8 @@ export default function Header({ title }) {
             {'>>'}
           </button>
         </div>
-        <Switch checked={isChapterView} onChange={setChapterView} />
+        <Switch checked={isChapterView} isRequireAncient={isRequireAncient} isRequireTranslatable={isRequireTranslatable} 
+                onChange={setChapterView} onRequireAncientChange={setIsRequireAncient} onRequireTranslatableChange={setIsRequireTranslatable} />
       </div>
       <div className='flex flex-row-reverse mr-8 md:flex'>
         {/** buttons go here */}
