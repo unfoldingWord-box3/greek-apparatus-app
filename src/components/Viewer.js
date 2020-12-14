@@ -67,7 +67,7 @@ function Viewer({ usfm }) {
               direction='auto'
             />
             <br/>
-            <ApparatusData filteredVariantObjects={filteredVariantObjects} languageID={languageID} />
+            <ApparatusData filteredVariantObjects={filteredVariantObjects} languageID={languageID} chapterKey={chapterKey} currentVerseKey={currentVerseKey} isAncientSourcesRequired={isAncientSourcesRequired} isTranslatableVariantsRequired={isTranslatableVariantsRequired} />
           </>
         </Card>
       </div>

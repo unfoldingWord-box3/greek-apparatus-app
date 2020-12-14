@@ -1,7 +1,8 @@
 import ApparatusSource from '@components/ApparatusSource'
+import filterApparatusData from '@utils/filterApparatusData'
 
-export default function ApparatusData({ filteredVariantObjects, languageID }) {
-  return (
+export default function ApparatusData({ filteredVariantObjects, languageID, chapterKey, currentVerseKey, isAncientSourcesRequired, isTranslatableVariantsRequired }) {
+    return (
     <div className='apparatusRow flex flex-wrap'>
       {' '}
       {filteredVariantObjects.map((currentVariantObject, i) => (
