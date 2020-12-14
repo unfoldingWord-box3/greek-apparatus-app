@@ -1,6 +1,6 @@
 import ApparatusSource from '@components/ApparatusSource'
 
-export default function ApparatusData({ filteredVariantObjects }) {
+export default function ApparatusData({ filteredVariantObjects, languageID }) {
   return (
     <div className='apparatusRow flex flex-wrap'>
       {' '}
@@ -14,9 +14,9 @@ export default function ApparatusData({ filteredVariantObjects }) {
               <div className='text-black break-normal ml-2 text-lg'>
                 {currentReading.text.trim().length == 0
                   ? '(Omit)'
-                  : currentReading.translations.filter(
-                      tl => tl.languageId == 'en'
-                    )[0].text}
+                  : (currentReading.translations.filter(tl => tl.languageId == languageID).length > 0)? 
+                      currentReading.translations.filter(tl => tl.languageId == languageID)[0].text : ''
+                }
               </div>
               <div className='text-trueGray-400 ml-2'>
                 {currentReading.text}

@@ -13,6 +13,7 @@ function Viewer({ usfm }) {
     bibleReference: { chapter, verse },
     isAncientSourcesRequired,
     isTranslatableVariantsRequired,
+    languageID,
   } = useContext(BibleReferenceContext)
 
   const usfmJSON = usfmJS.toJSON(usfm)
@@ -66,7 +67,7 @@ function Viewer({ usfm }) {
               direction='auto'
             />
             <br/>
-            <ApparatusData filteredVariantObjects={filteredVariantObjects} />
+            <ApparatusData filteredVariantObjects={filteredVariantObjects} languageID={languageID} />
           </>
         </Card>
       </div>

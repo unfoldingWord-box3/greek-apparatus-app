@@ -65,7 +65,7 @@ export default function Header({ title }) {
           </button>
         </div>
         <Switch id="chapter-view" label={"Chapter View"} checked={isChapterView} onChange={setChapterView} />
-        <LanguageSelect languageID={languageID} onChange={setLanguageID} />
+        <LanguageSelect languageID={languageID} onChange={(value) => setLanguageID(value)} />
         <Switch id={"require-sources"} label={"Require Ancient Sources"} checked={isAncientSourcesRequired} onChange={setAncientSourcesRequired} />
         <Switch id={"require-variants"} label={"Require Translatable Variants"} checked={isTranslatableVariantsRequired} onChange={setTranslatableVariantsRequired} />
       </div>
