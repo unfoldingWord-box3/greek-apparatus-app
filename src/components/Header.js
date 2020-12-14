@@ -27,7 +27,7 @@ export default function Header({ title }) {
   })
 
   return (
-    <div className='h-20 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md: h-14'>
+    <div className='h-34 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md:h-14'>
       <Link href='/'>
         <a className='no-underline cursor-pointer ml-8 text-lg text-gray-700 hidden md:flex'>
           {title}
@@ -64,11 +64,28 @@ export default function Header({ title }) {
             {'>>'}
           </button>
         </div>
-        <Switch id="chapter-view" label={"Chapter View"} checked={isChapterView} onChange={setChapterView} />
-        <LanguageSelect languageID={languageID} onChange={setLanguageID} />
-        <Switch id={"require-sources"} label={"Require Ancient Sources"} checked={isAncientSourcesRequired} onChange={setAncientSourcesRequired} />
-        <Switch id={"require-variants"} label={"Require Translatable Variants"} checked={isTranslatableVariantsRequired} onChange={setTranslatableVariantsRequired} />
+        <div className='flex'>
+          <Switch
+            id='chapter-view'
+            label={'Chapter View'}
+            checked={isChapterView}
+            onChange={setChapterView}
+          />
+          <Switch
+            id={'require-sources'}
+            label={'Require Ancient Sources'}
+            checked={isAncientSourcesRequired}
+            onChange={setAncientSourcesRequired}
+          />
+          <Switch
+            id={'require-variants'}
+            label={'Require Translatable Variants'}
+            checked={isTranslatableVariantsRequired}
+            onChange={setTranslatableVariantsRequired}
+          />
+        </div>
       </div>
+      <LanguageSelect languageID={languageID} onChange={setLanguageID} />
       <div className='flex flex-row-reverse mr-8 md:flex'>
         {/** buttons go here */}
       </div>
