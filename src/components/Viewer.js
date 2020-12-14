@@ -66,8 +66,13 @@ function Viewer({ usfm }) {
               disableWordPopover={true}
               direction='auto'
             />
-            <br/>
-            <ApparatusData filteredVariantObjects={filteredVariantObjects} languageID={languageID} chapterKey={chapterKey} currentVerseKey={currentVerseKey} isAncientSourcesRequired={isAncientSourcesRequired} isTranslatableVariantsRequired={isTranslatableVariantsRequired} />
+            <br />
+            <ApparatusData
+              languageID={languageID}
+              filteredVariantObjects={filteredVariantObjects}
+              isAncientSourcesRequired={isAncientSourcesRequired}
+              isTranslatableVariantsRequired={isTranslatableVariantsRequired}
+            />
           </>
         </Card>
       </div>
