@@ -3,6 +3,7 @@ import Link from 'next/link'
 import BibleReference, { useBibleReference } from 'bible-reference-rcl'
 import { BibleReferenceContext } from '@context/BibleReferenceContext'
 import Switch from '@components/Switch'
+import LanguageSelect from '@components/LanguageSelect'
 
 export default function Header({ title }) {
   const {
@@ -10,6 +11,12 @@ export default function Header({ title }) {
     setChapterView,
     bibleReference: { bookId, chapter, verse },
     onReferenceChange,
+    languageID,
+    setLanguageID,
+    isAncientSourcesRequired,
+    setAncientSourcesRequired,
+    isTranslatableVariantsRequired,
+    setTranslatableVariantsRequired,
   } = useContext(BibleReferenceContext)
 
   const { state, actions } = useBibleReference({
@@ -20,7 +27,7 @@ export default function Header({ title }) {
   })
 
   return (
-    <div className='h-20 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md: h-14'>
+    <div className='h-34 w-screen flex flex-col items-center p-1 justify-between bg-white shadow-xs md:flex-row md:h-14'>
       <Link href='/'>
         <a className='no-underline cursor-pointer ml-8 text-lg text-gray-700 hidden md:flex'>
           {title}
@@ -57,8 +64,31 @@ export default function Header({ title }) {
             {'>>'}
           </button>
         </div>
-        <Switch checked={isChapterView} onChange={setChapterView} />
+        <div className='flex'>
+          <Switch
+            id='chapter-view'
+            label={'Chapter View'}
+            checked={isChapterView}
+            onChange={setChapterView}
+          />
+          <Switch
+            id={'require-sources'}
+            label={'Require Ancient Sources'}
+            checked={isAncientSourcesRequired}
+            onChange={setAncientSourcesRequired}
+          />
+          <Switch
+            id={'require-variants'}
+            label={'Require Translatable Variants'}
+            checked={isTranslatableVariantsRequired}
+            onChange={setTranslatableVariantsRequired}
+          />
+        </div>
       </div>
+      <LanguageSelect
+        languageID={languageID}
+        onChange={value => setLanguageID(value)}
+      />
       <div className='flex flex-row-reverse mr-8 md:flex'>
         {/** buttons go here */}
       </div>

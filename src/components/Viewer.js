@@ -11,6 +11,9 @@ function Viewer({ usfm }) {
   const {
     isChapterView,
     bibleReference: { chapter, verse },
+    isAncientSourcesRequired,
+    isTranslatableVariantsRequired,
+    languageID,
   } = useContext(BibleReferenceContext)
 
   const usfmJSON = usfmJS.toJSON(usfm)
@@ -36,7 +39,9 @@ function Viewer({ usfm }) {
   const verses = verseNumbers.map((currentVerseKey, i) => {
     const filteredVariantObjects = filterApparatusData(
       chapterKey,
-      currentVerseKey
+      currentVerseKey,
+      isAncientSourcesRequired,
+      isTranslatableVariantsRequired
     )
     const currentVerseObjectsArrayContents = tagVariantsInVerseObjects(
       chapters[chapterKey][currentVerseKey],
@@ -61,8 +66,13 @@ function Viewer({ usfm }) {
               disableWordPopover={true}
               direction='auto'
             />
-            <br/>
-            <ApparatusData filteredVariantObjects={filteredVariantObjects} />
+            <br />
+            <ApparatusData
+              languageID={languageID}
+              filteredVariantObjects={filteredVariantObjects}
+              isAncientSourcesRequired={isAncientSourcesRequired}
+              isTranslatableVariantsRequired={isTranslatableVariantsRequired}
+            />
           </>
         </Card>
       </div>

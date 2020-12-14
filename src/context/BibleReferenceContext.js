@@ -3,7 +3,14 @@ import React, { useState, createContext } from 'react'
 export const BibleReferenceContext = createContext({})
 
 export default function BibleReferenceContextProvider(props) {
+  const [languageID, setLanguageID] = useState('en')
   const [isChapterView, setChapterView] = useState(true)
+  const [isAncientSourcesRequired, setAncientSourcesRequired] = useState(false)
+  const [
+    isTranslatableVariantsRequired,
+    setTranslatableVariantsRequired,
+  ] = useState(false)
+
   const [bibleReference, setBibleReference] = useState({
     bookId: 'mrk',
     chapter: '2',
@@ -23,8 +30,14 @@ export default function BibleReferenceContextProvider(props) {
   const value = {
     isChapterView,
     bibleReference,
+    languageID,
+    isAncientSourcesRequired,
+    isTranslatableVariantsRequired,
+    setLanguageID,
     setChapterView,
     onReferenceChange,
+    setAncientSourcesRequired,
+    setTranslatableVariantsRequired,
   }
 
   return (

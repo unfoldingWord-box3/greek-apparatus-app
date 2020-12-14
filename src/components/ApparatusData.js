@@ -1,6 +1,12 @@
 import ApparatusSource from '@components/ApparatusSource'
+import filterApparatusData from '@utils/filterApparatusData'
 
-export default function ApparatusData({ filteredVariantObjects }) {
+export default function ApparatusData({
+  languageID,
+  filteredVariantObjects,
+  isAncientSourcesRequired,
+  isTranslatableVariantsRequired,
+}) {
   return (
     <div className='apparatusRow flex flex-wrap'>
       {' '}
@@ -15,8 +21,12 @@ export default function ApparatusData({ filteredVariantObjects }) {
                 {currentReading.text.trim().length == 0
                   ? '(Omit)'
                   : currentReading.translations.filter(
-                      tl => tl.languageId == 'en'
-                    )[0].text}
+                      tl => tl.languageId == languageID
+                    ).length > 0
+                  ? currentReading.translations.filter(
+                      tl => tl.languageId == languageID
+                    )[0].text
+                  : ''}
               </div>
               <div className='text-trueGray-400 ml-2'>
                 {currentReading.text}
@@ -33,18 +43,17 @@ export default function ApparatusData({ filteredVariantObjects }) {
                     } else {
                       return (
                         <div key={`${i}-source`} className='block ml-2'>
-                          {
-                            currentSource.title.split(' ').map(
-                              (src, j) => (
-                                <span key={i + '-source' + '-' + j + '-title'} className="tooltip mr-1">
-                                  {src}
-                                  <span className="tooltip-text">
-                                    <ApparatusSource source={src}/>
-                                  </span>
-                                </span>
-                              )
-                            )
-                          }
+                          {currentSource.title.split(' ').map((src, j) => (
+                            <span
+                              key={i + '-source' + '-' + j + '-title'}
+                              className='tooltip mr-1'
+                            >
+                              {src}
+                              <span className='tooltip-text'>
+                                <ApparatusSource source={src} />
+                              </span>
+                            </span>
+                          ))}
                         </div>
                       )
                     }
