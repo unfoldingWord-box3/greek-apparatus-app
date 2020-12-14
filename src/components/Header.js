@@ -85,7 +85,10 @@ export default function Header({ title }) {
           />
         </div>
       </div>
-      <LanguageSelect languageID={languageID} onChange={setLanguageID} />
+      <LanguageSelect
+        languageID={languageID}
+        onChange={value => setLanguageID(value)}
+      />
       <div className='flex flex-row-reverse mr-8 md:flex'>
         {/** buttons go here */}
       </div>
