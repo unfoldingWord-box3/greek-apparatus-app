@@ -29,7 +29,6 @@
     "string-punctuation-tokenizer": "^2.1.2",
     "swr": "^0.3.9",
     "tailwindcss": "^2.0.1",
-    "translation-helps-rcl": "^0.10.8",
     "usfm-js": "^2.1.0"
   },
   "repository": {
